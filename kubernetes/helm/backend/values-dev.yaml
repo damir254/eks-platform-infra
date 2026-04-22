@@ -4,5 +4,5 @@ replicaCount: 2
 
 image:
   repository: "808840719445.dkr.ecr.eu-central-1.amazonaws.com/eks-platform-dev-backend"
-  tag: "v1"
+  tag: "ad79b2199b1b3d005d6f12fef870dc72854192dc"
   pullPolicy: IfNotPresent                     
