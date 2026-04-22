@@ -1,0 +1,20 @@
+namespace: dev
+
+replicaCount: 2
+
+image:
+  repository: "808840719445.dkr.ecr.eu-central-1.amazonaws.com/eks-platform-dev-frontend"
+  tag: "v1"
+  pullPolicy: IfNotPresent
+
+ingress:
+  enabled: true
+  className: eks-auto-alb
+  path: /
+  pathType: Prefix
+
+alb:
+  scheme: internet-facing
+  subnets:
+    - "subnet-0ffb467645f7f0ca7"
+    - "subnet-0f6dee2d4d8a98217"

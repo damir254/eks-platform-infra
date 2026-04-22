@@ -1,0 +1,48 @@
+namespace: dev
+
+replicaCount: 2
+
+image:
+  repository: "808840719445.dkr.ecr.eu-central-1.amazonaws.com/eks-platform-dev-backend"
+  tag: "v1"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 5000
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "250m"
+    memory: "256Mi"
+
+probes:
+  readiness:
+    path: /health
+    port: 5000
+    initialDelaySeconds: 5
+    periodSeconds: 10
+  liveness:
+    path: /health
+    port: 5000
+    initialDelaySeconds: 10
+    periodSeconds: 15
+
+config:
+  dbHost: "eks-platform-dev-postgres.c54ukagqm4y3.eu-central-1.rds.amazonaws.com"
+  dbName: "appdb"
+  dbUser: "appuser"
+  dbPort: "5432"
+
+
+hpa:
+  minReplicas: 2
+  maxReplicas: 5
+  targetCPUUtilizationPercentage: 60
+
+networkPolicy:
+  allowedFrontendInstance: frontend-dev

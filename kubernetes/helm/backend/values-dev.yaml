@@ -1,0 +1,8 @@
+namespace: dev
+
+replicaCount: 2
+
+image:
+  repository: "808840719445.dkr.ecr.eu-central-1.amazonaws.com/eks-platform-dev-backend"
+  tag: "v1"
+  pullPolicy: IfNotPresent                     

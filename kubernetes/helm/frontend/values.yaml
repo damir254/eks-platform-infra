@@ -1,0 +1,31 @@
+namespace: dev
+
+replicaCount: 2
+
+image:
+  repository: "808840719445.dkr.ecr.eu-central-1.amazonaws.com/eks-platform-dev-frontend"
+  tag: "v1"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8080
+
+ingress:
+  enabled: true
+  className: eks-auto-alb
+  path: /
+  pathType: Prefix
+
+alb:
+  scheme: internet-facing
+  subnets: []
+
+resources:
+  requests:
+    cpu: "100m"
+    memory: "128Mi"
+  limits:
+    cpu: "250m"
+    memory: "256Mi"

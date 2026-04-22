@@ -1,0 +1,13 @@
+{{- if .Values.ingress.enabled }}
+apiVersion: eks.amazonaws.com/v1
+kind: IngressClassParams
+metadata:
+  name: {{ .Values.ingress.className }}
+spec:
+  scheme: {{ .Values.alb.scheme }}
+  subnets:
+    ids:
+{{- range .Values.alb.subnets }}
+      - {{ . | quote }}
+{{- end }}
+{{- end }}

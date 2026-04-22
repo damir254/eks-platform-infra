@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: eks-platform
+  namespace: argocd
+spec:
+  description: Project for eks-platform workloads
+  sourceRepos:
+    - 'https://github.com/damir254/eks-platform-infra.git'
+  destinations:
+    - namespace: dev
+      server: https://kubernetes.default.svc
+  clusterResourceWhitelist:
+    - group: '*'
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'
+      kind: '*'
