@@ -2,7 +2,7 @@ namespace: dev
 replicaCount: 2
 image:
   repository: "808840719445.dkr.ecr.eu-central-1.amazonaws.com/eks-platform-dev-frontend"
-  tag: "main@sha256:c9d08a171044f7c7c3524a01d6bc723ce8a0af37e98cda9a8dfcbb953ff78128"
+  tag: "main@sha256:a34d9b3c5e6322ea7e76449bc03bbb75c553c06cdea72c71d20bc8f8780aa0c0"
   pullPolicy: IfNotPresent
 ingress:
   enabled: true
