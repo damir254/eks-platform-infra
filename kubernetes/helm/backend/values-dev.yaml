@@ -2,5 +2,5 @@ namespace: dev
 replicaCount: 2
 image:
   repository: "808840719445.dkr.ecr.eu-central-1.amazonaws.com/eks-platform-dev-backend"
-  tag: "main@sha256:08eff06c8197fb2b877ea815b8bb9c705ff61a6e8adb6a73852eeb1dc870a773"
+  tag: "main@sha256:1d3b24455104d280c265047470ad7e91843667e4073716f87341ec3fcbde7b49"
   pullPolicy: IfNotPresent
