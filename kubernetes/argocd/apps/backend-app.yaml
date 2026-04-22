@@ -7,7 +7,7 @@ spec:
   project: eks-platform
   source:
     repoURL: 'https://github.com/damir254/eks-platform-infra.git'
-    targetRevision: HEAD
+    targetRevision: main
     path: kubernetes/helm/backend
     helm:
       valueFiles:

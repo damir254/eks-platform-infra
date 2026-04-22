@@ -1,0 +1,23 @@
+apiVersion: argocd-image-updater.argoproj.io/v1alpha1
+kind: ImageUpdater
+metadata:
+  name: frontend
+  namespace: argocd
+spec:
+  writeBackConfig:
+    method: "git:secret:argocd/argocd-image-updater-git-creds"
+    gitConfig:
+      repository: https://github.com/damir254/eks-platform-infra.git
+      branch: main
+      writeBackTarget: helmvalues:kubernetes/helm/frontend/values-dev.yaml
+  applicationRefs:
+    - namePattern: "^frontend$"
+      images:
+        - alias: frontend
+          imageName: 808840719445.dkr.ecr.eu-central-1.amazonaws.com/eks-platform-dev-frontend:main
+          commonUpdateSettings:
+            updateStrategy: digest
+          manifestTargets:
+            helm:
+              name: image.repository
+              tag: image.tag
